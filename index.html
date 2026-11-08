@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>WebAR: управление объектом</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Three.js 0.160.0 с CDN jsDelivr через importmap -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Сюда main.js добавит canvas рендерера -->
+  <div id="scene-container"></div>
+
+  <!-- Корень DOM Overlay: всё, что внутри, видно поверх AR -->
+  <div id="overlay">
+    <!-- Верх: короткая подсказка (не перехватывает касания) -->
+    <div class="top">
+      <div id="hint" class="hint">Загрузка…</div>
+    </div>
+
+    <!-- Сообщения об ошибках -->
+    <div id="toast" class="toast" role="alert"></div>
+
+    <!-- Нижняя панель управления (кнопки создаёт ui.js) -->
+    <div id="panel" class="panel xr-block"></div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
